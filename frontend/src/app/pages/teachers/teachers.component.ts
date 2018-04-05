@@ -22,7 +22,7 @@ export class TeachersComponent implements OnInit {
     // return false;
 
      if(username == 'admin' && password == 'admin'){
-      this.router.navigate(['student-info']);
+      this.router.navigate(['teacher-info']);
      }
   }
 }

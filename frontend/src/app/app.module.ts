@@ -6,6 +6,8 @@ import { PagesRoutingModule } from './pages/pages-routing.module';
 import { AppComponent } from './app.component';
 import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
+import { UserService } from './user.service';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -21,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     ClarityModule,
     PagesRoutingModule
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

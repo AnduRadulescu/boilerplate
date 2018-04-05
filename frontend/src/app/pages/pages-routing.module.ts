@@ -7,17 +7,10 @@ import { StudentsComponent } from './students/students.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { StudentInfoComponent} from './student-info/student-info.component'; 
 import { TeacherInfoComponent} from './teacher-info/teacher-info.component';
+import { AuthGuard } from '../auth.guard';
 
-// const routes: Routes = [
-//   {
-//     path: 'pages', component: NavbarComponent, children: [
-//       { path: 'home', component: HomeComponent },
-//       { path: 'students', component: StudentsComponent },
-//        { path: 'sutdent-pages',component: SutdentPagesComponent},
-//       { path: 'teachers', component: TeachersComponent }
-//     ]
-//   }
-// ];
+
+
 const appRoutes: Routes = [
   {
     path:'',
@@ -30,7 +23,8 @@ const appRoutes: Routes = [
     path:'teachers',component: TeachersComponent
   },
   {
-    path:'student-info',component: StudentInfoComponent
+    
+    path:'student-info',canActivate: [AuthGuard] ,component: StudentInfoComponent
   },
   {
     path:'teacher-info',component: TeacherInfoComponent
