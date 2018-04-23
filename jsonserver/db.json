@@ -1,0 +1,37 @@
+{
+  "prof": [
+   {
+     "username":"Prof",
+    "password":"pass",
+    "fisrName": "John",
+    "lastName": "Smith",
+    "email":"john_smith@gmail.com"
+  }
+  ],
+  "students": [
+    { 
+      "id":1,
+      "student": "Stud",
+      "password": "Pass",
+      "fisrName": "John",
+      "lastName": "Vasile",
+      "email":"john_dick@gmail.com"
+    },
+    {
+       "id":1,
+      "student": "Stud",
+      "password": "Pass",
+      "fisrName": "Mula",
+      "lastName": "Jakiane",
+      "email":"jakson_in_the_house@gmail.com"
+    },
+    {
+       "id":1,
+      "student": "Stud",
+      "password": "Pass",
+      "fisrName": "Andy",
+      "lastName": "Bandy",
+      "email":"andy_bandy@gmail.com"
+    }
+  ]
+}
