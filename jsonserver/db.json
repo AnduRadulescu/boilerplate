@@ -5,7 +5,8 @@
     "password":"pass",
     "fisrName": "John",
     "lastName": "Smith",
-    "email":"john_smith@gmail.com"
+    "email":"john_smith@gmail.com",
+    "subject":"Mathematics"
   }
   ],
   "students": [
