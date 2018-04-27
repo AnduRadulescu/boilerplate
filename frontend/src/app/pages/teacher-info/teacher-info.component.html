@@ -1,4 +1,44 @@
-<p>
-    teacehr-info works!
-    <a routerLink="/">Go back</a> 
-</p>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+table#t2 tr:nth-child(even){
+  background-color: grey;
+  color:black;
+}
+table#t2 tr:nth-child(odd){
+  background-color: white;
+  color : black
+}
+table#t2 th{
+  backgorund-color: black;
+  color: black;
+}
+
+</style>
+</head>
+<body>
+  <table id="t2" *ngIf = "teachers">
+    <tr>
+      <th>Nume</th>
+      <th>Prenume</th>
+      <th>Nota</th>
+    </tr>
+    <tr *ngFor = "let teachs of teachers">
+      <td>{{teachs.fname}}</td>
+      <td>{{teachs.lname}}</td>
+      <td>{{teachs.id}}</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -8,6 +8,7 @@ import { PagesModule } from './pages/pages.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './user.service';
 import { AuthGuard } from './auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,7 +22,8 @@ import { AuthGuard } from './auth.guard';
     PagesModule,
     BrowserModule,
     ClarityModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    HttpClientModule
   ],
   providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
