@@ -1,13 +1,19 @@
 <form (submit)="loginUser($event)">
-  <div class="input">
-    <label>Username</label>
-    <input type="text">
-  </div>
-  <div class="input">
-    <label>Password</label>
-    <input type="password" name="psw">
-  </div>
-  <div class="input">
-    <input type="submit" value="Login"> 
-  </div>
+    <div class="input">
+        <label>Username</label>
+        <input type="text">
+    </div>
+    <div class="input">
+        <label>Password</label>
+        <input type="password" name="psw">
+    </div>
+    <div class="input">
+        <input type="submit" value="Login">
+    </div>
+    <div class="row justify-content-center">
+        <div class="col calert alert-danger text-center" role="alert" *ngIf="notFound">
+            Student not found!
+        </div>
+    </div>
+
 </form> 
