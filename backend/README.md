@@ -23,4 +23,4 @@ To run the server:
     nodemon
 ```
 
-`All of these commands must be writtend in a terminal in the root directory: /backend`
+`All of these commands must be written in a terminal in the root directory: /backend`
