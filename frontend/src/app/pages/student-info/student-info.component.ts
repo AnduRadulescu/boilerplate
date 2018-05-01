@@ -1,26 +1,41 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../user.service';
-import { HttpClient } from '@angular/common/http';
-import { HttpErrorResponse } from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 
 @Component({
-  selector: 'app-student-info',
-  templateUrl: './student-info.component.html',
-  styleUrls: ['./student-info.component.css']
+    selector: 'app-student-info',
+    templateUrl: './student-info.component.html',
+    styleUrls: ['./student-info.component.css']
 })
 export class StudentInfoComponent implements OnInit {
-  students: string[];
-  constructor(private user:UserService, private http: HttpClient) {
-    this.http.get('http://www.filltext.com/?rows=7&country={country}&id={numberRange|1,10}').subscribe(data=>{
-      console.log(data);
-      this.students = data as string[];
-    },(err: HttpErrorResponse)=> {
-      console.log(err.message);
-    })
-   }
+    subjects: string[];
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Authorization': localStorage.getItem('token')
+        })
+    };
 
-  ngOnInit() {
-  }
+    constructor(private http: HttpClient, private router: Router) {
+    }
 
+    ngOnInit() {
+        console.log('ceva');
+        this.sync();
+    }
+
+    sync() {
+        this.http.post('http://localhost:8000/api/student/sync', {}, this.httpOptions)
+            .subscribe(studentInfo => {
+                console.log(studentInfo.student.subjects);
+                this.subjects = studentInfo.student.subjects as string[];
+            }, (err: HttpErrorResponse) => {
+                console.log(err.message);
+            });
+    }
+
+    onLogOut() {
+        localStorage.removeItem('token');
+        this.router.navigate(['students']);
+    }
 }

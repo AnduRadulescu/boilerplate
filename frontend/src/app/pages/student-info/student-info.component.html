@@ -1,43 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-table#t1 tr:nth-child(even){
-  background-color: grey;
-  color:black;
-}
-table#t1 tr:nth-child(odd){
-  background-color: white;
-  color : black
-}
-table#t1 th{
-  backgorund-color: black;
-  color: black;
-}
-
-</style>
 </head>
 <body>
-  <table id="t1" *ngIf = "students">
+<table id="t1" *ngIf="subjects">
     <tr>
-      <th>Materie</th>
-      <th>Nota</th>
+        <th>Materie</th>
+        <th>Nota</th>
     </tr>
-    <tr *ngFor = "let studs of students">
-      <td>{{studs.country}}</td>
-      <td>{{studs.id}}</td>
+    <tr *ngFor="let subject of subjects">
+        <td>{{subject.name}}</td>
+        <td>{{subject.grade}}</td>
     </tr>
-  </table>
+</table>
+<div class="row justify-content-center position-top">
+    <button class="btn btn-secondary" (click)="onLogOut()">Logout</button>
+</div>
 </body>
 </html>

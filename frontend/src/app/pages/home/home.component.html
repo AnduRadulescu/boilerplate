@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Catalog</title>
+    <title>Catalog</title>
 </head>
 <body>
-  <div class="row">
-    <div class="col-1">
+<div class="row justify-content-center position-center">
+    <div class="col-4 text-center">
         <div>
-          <h2>Login as a Student</h2>
-          <form (submit)="loginStudent($event)">
-          <div>
-              <input class="btn1" type="submit" value="Login"/> 
-          </div>
-        </form>
+            <h2>Login as a Student</h2>
+            <form (submit)="loginStudent($event)">
+                <div>
+                    <input class="btn1" type="submit" value="Login"/>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="col-2">
-      <div>
-        <h2>Login as a Teacher</h2>
-          <form (submit)="loginTeacher($event)">
-            <div>
-                <input class="btn2" type="submit" value="Login"/> 
-            </div>
-          </form>
-      </div>
+    <div class="col-4 text-center">
+        <div>
+            <h2>Login as a Teacher</h2>
+            <form (submit)="loginTeacher($event)">
+                <div>
+                    <input class="btn2" type="submit" value="Login"/>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
 </body>
 
 </html>

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {UserService} from '../../user.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -12,11 +11,13 @@ export class StudentsComponent implements OnInit {
 
     notFound: boolean = false;
 
-    constructor(private router: Router, private user: UserService, private http: HttpClient) {
+    constructor(private router: Router, private http: HttpClient) {
     }
 
     ngOnInit() {
-        console.log('is user logged in ?', this.user.getUserLoggedIn);
+        if (localStorage.getItem('token')) {
+            this.router.navigate(['student-info']);
+        }
     }
 
     loginUser(e) {
@@ -27,17 +28,18 @@ export class StudentsComponent implements OnInit {
 
         this.post(username, password)
             .subscribe((receivedStudent) => {
-                if (!receivedStudent) {
-                    console.log('unauthorized');
-                    this.notFound = true;
-                } else {
-                    console.log(receivedStudent);
-                    localStorage.setItem('token', receivedStudent.token);
-                    this.notFound = false;
-                    // this.user.setUserLoggedIn();
-                    // this.router.navigate(['student-info']);
-                }
-            });
+                    if (!receivedStudent) {
+                        console.log('unauthorized');
+                        this.notFound = true;
+                    } else {
+                        console.log(receivedStudent);
+                        localStorage.setItem('token', receivedStudent.token);
+                        this.notFound = false;
+                        // this.user.setUserLoggedIn();
+                        this.router.navigate(['student-info']);
+                    }
+                },
+                err => console.log(err));
 
         // if (username == 'admin' && password == 'admin') {
         //     this.user.setUserLoggedIn();
@@ -48,5 +50,9 @@ export class StudentsComponent implements OnInit {
     post(username, password) {
         const student = {username, password};
         return this.http.post('http://localhost:8000/api/student/login', student);
+    }
+
+    back() {
+        this.router.navigate(['home']);
     }
 }

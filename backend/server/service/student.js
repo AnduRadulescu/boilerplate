@@ -27,3 +27,44 @@ exports.login = (req, res) => {
         });
     }).catch(error => res.status(400).send(error));
 };
+
+exports.sync = (req, res) => {
+    let token = req.headers.authorization;
+    console.log(token);
+    if (token) {
+        try {
+            var decoded = jwt.verify(token, jwtPrivateKey);
+        } catch (err) {
+            // console.log(err);
+            console.log('malformed');
+            return res.status(401).send({
+                message: 'UnAuthorized'
+            });
+        }
+        console.log(decoded);
+        student.findOne({
+            where: {id: decoded.id}
+            , include: [{all: true}]
+        }).then((student) => {
+            let date = new Date(decoded.updateDate);
+            if (student.updatedAt.getTime() === date.getTime()) {
+                res.status(200).send({
+                    student: student,
+                    message: 'Authorized'
+                });
+            } else {
+                throw 'token not up to date';
+            }
+        }).catch(error => {
+            console.log(error);
+            res.status(401).send({
+                message: 'UnAuthorized'
+            });
+        });
+
+    } else {
+        res.status(401).send({
+            message: 'UnAuthorized'
+        });
+    }
+};
