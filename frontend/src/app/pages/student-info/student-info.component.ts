@@ -27,8 +27,9 @@ export class StudentInfoComponent implements OnInit {
     sync() {
         this.http.post('http://localhost:8000/api/student/sync', {}, this.httpOptions)
             .subscribe(studentInfo => {
-                console.log(studentInfo.student.subjects);
-                this.subjects = studentInfo.student.subjects as string[];
+                console.log('ceva');
+                console.log(studentInfo['student.subjects']);
+                this.subjects = studentInfo['student.subjects'] as string[];
             }, (err: HttpErrorResponse) => {
                 console.log(err.message);
             });

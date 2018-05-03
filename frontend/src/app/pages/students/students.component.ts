@@ -33,18 +33,13 @@ export class StudentsComponent implements OnInit {
                         this.notFound = true;
                     } else {
                         console.log(receivedStudent);
-                        localStorage.setItem('token', receivedStudent.token);
+                        localStorage.setItem('token', receivedStudent['token']);
                         this.notFound = false;
                         // this.user.setUserLoggedIn();
                         this.router.navigate(['student-info']);
                     }
                 },
                 err => console.log(err));
-
-        // if (username == 'admin' && password == 'admin') {
-        //     this.user.setUserLoggedIn();
-        //     this.router.navigate(['student-info']);
-        // }
     }
 
     post(username, password) {
