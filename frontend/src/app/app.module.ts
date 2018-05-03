@@ -25,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     PagesRoutingModule,
     HttpClientModule
   ],
-  // providers: [UserService, AuthGuard],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

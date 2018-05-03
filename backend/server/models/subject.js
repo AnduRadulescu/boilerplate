@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
             through: {
                 model: models.studentsSubject,
                 unique: false,
-            }, foreignKey: 'studentId'
+            }, foreignKey: 'subjectId'
         })
     };
     return subject;

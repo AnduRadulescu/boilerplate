@@ -32,6 +32,6 @@ export class TeachersComponent implements OnInit {
     }
 
     back() {
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
     }
 }

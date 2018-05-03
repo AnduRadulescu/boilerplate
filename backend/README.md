@@ -13,6 +13,8 @@ docker exec -it postgresdb psql --username postgres -c "DROP DATABASE web2"
 
 If docker is not used, manually create a database `web2`. Make sure to change the port in the `server/config/config.json` and set all the credentials as you have them.
 After download run `npm install` to install all the dependencies. Make sure sequelize has been installed and then run, in the root directory:
+Note that `sequelize-cli` is mandatory in order to be able to run the following commands.
+If `sequelize-cli` has not been installed before, run: `npm install -g sequelize-cli`
 ```sh
 sequelize db:migrate
 ```

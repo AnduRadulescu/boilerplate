@@ -11,7 +11,7 @@ import {TeacherInfoComponent} from './teacher-info/teacher-info.component';
 
 const appRoutes: Routes = [
     {
-        path: 'home',
+        path: '',
         component: HomeComponent
     },
     {

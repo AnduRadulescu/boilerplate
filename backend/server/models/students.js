@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
             through: {
                 model: models.studentsSubject,
                 unique: false,
-            }, foreignKey: 'subjectId', onDelete: 'CASCADE'
+            }, foreignKey: 'studentId', onDelete: 'CASCADE'
         })
     };
     return students;
