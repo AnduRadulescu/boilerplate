@@ -10,6 +10,7 @@ docker exec -it postgresdb psql --username postgres -c "CREATE DATABASE web2 OWN
 docker exec -it postgresdb psql --username postgres -c "GRANT ALL PRIVILEGES ON DATABASE web2 TO postgres;"
 docker exec -it postgresdb psql --username postgres -c "DROP DATABASE web2"
 ```
+Before all run: `npm install` to actualize all the dependencies.
 
 If docker is not used, manually create a database `web2`. Make sure to change the port in the `server/config/config.json` and set all the credentials as you have them.
 After download run `npm install` to install all the dependencies. Make sure sequelize has been installed and then run, in the root directory:
