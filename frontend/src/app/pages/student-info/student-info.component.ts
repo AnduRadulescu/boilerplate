@@ -22,6 +22,9 @@ export class StudentInfoComponent implements OnInit {
     ngOnInit() {
         console.log('ceva');
         this.sync();
+        if (!localStorage.getItem('token')) {
+            this.router.navigate(['students']);
+        }
     }
 
     sync() {
@@ -32,6 +35,8 @@ export class StudentInfoComponent implements OnInit {
                 this.subjects = studentInfo['student']['subjects'] as string[];
             }, (err: HttpErrorResponse) => {
                 console.log(err.message);
+                localStorage.removeItem('token');
+                this.router.navigate(['students']);
             });
     }
 
